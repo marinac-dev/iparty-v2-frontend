@@ -12,3 +12,26 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+.header {
+  @apply flex flex-row items-center justify-between my-4 rounded py-2 px-3 shadow font-sans tracking-wide relative bg-gray-100;
+}
+
+.navbar {
+  @apply justify-between items-center flex-grow w-full hidden flex-col lg:flex lg:flex-row;
+}
+
+.navbar .iparty {
+  @apply flex flex-col lg:flex-row flex-grow items-start lg:items-center justify-evenly;
+}
+
+.navbar .iparty .nav-link {
+  @apply text-lg border-0 border-b-2 border-transparent text-blue-800 px-2 my-1 mb-3 lg:m-0 hover:border-gray-800;
+}
+
+.sign-up {
+  @apply mx-2 px-2 py-1 text-lg cursor-pointer border-0 border-b-2 border-green-500  text-green-700  hover:bg-green-100;
+}
+.sign-in {
+  @apply mx-2 px-2 py-1 text-lg cursor-pointer border-0 border-b-2 border-blue-500 text-blue-700 hover:bg-blue-100;
+}
