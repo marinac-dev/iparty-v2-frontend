@@ -1,0 +1,21 @@
+@import "./player.css";
+
+/* Main */
+.iparty {
+  @apply w-full flex flex-col justify-start items-center rounded-lg py-5;
+}
+
+.iparty .player-and-search {
+  @apply w-full flex flex-row items-start justify-between;
+}
+
+/* Player CSS */
+.player-and-search .wrapper {
+  @apply flex flex-col justify-center items-center w-full lg:w-2/3;
+}
+
+.wrapper .player {
+  @apply flex flex-col w-full lg:w-3/4 items-center justify-center shadow-md rounded-md overflow-hidden relative;
+}
+
+/* Search CSS */
