@@ -1,7 +1,9 @@
+// r0bO9CKb0Wo = YA NINA - Sugar
+// ele2DMU49Jk = SAINt JHN - "Roses" Imanbek Remix
 const Config: any = {};
 
 Config.PlayerOpts = {
-  videoId: "ele2DMU49Jk",
+  videoId: "r0bO9CKb0Wo",
   opts: {
     max_height: "390",
     width: "640",
