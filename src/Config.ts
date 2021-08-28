@@ -14,7 +14,7 @@ Config.PlayerOpts = {
       playsinline: 1,
       modestbranding: 1,
       cc_load_policy: 0,
-      origin: window.location.hostname,
+      // origin: window.location.hostname,
     },
   },
 };
