@@ -6,16 +6,59 @@
 }
 
 .iparty .player-and-search {
-  @apply w-full flex flex-row items-start justify-between;
+  @apply w-full flex flex-col md:flex-row items-start justify-between space-x-4;
+}
+
+.icon {
+  @apply cursor-pointer focus:outline-none
+}
+.icon {
+  color: hsl(0, 0%, 95%);
+  transition: 0s all;
+}
+
+.icon:hover {
+  text-shadow: 0px 0px 3px hsl(180, 100%, 97%);
 }
 
 /* Player CSS */
 .player-and-search .wrapper {
-  @apply flex flex-col justify-center items-center w-full lg:w-2/3;
+  @apply w-2/3 relative flex flex-col items-center justify-center m-4 overflow-hidden;
 }
 
-.wrapper .player {
-  @apply flex flex-col w-full lg:w-3/4 items-center justify-center shadow-md rounded-md overflow-hidden relative;
+.wrapper .player{
+  @apply w-3/4 flex justify-center items-center rounded overflow-hidden;
+}
+
+.player .video {
+  @apply w-full flex justify-center items-center rounded;
+}
+
+.video iframe {
+  @apply w-full  pointer-events-none;
+}
+
+.player .controls {
+  @apply flex flex-col justify-center items-center space-y-2 z-10 absolute bottom-0 pb-2;
+}
+
+.controls .row-1 {
+  @apply flex justify-between w-full;
+}
+
+.row-1 .sub-menu {
+  @apply flex justify-center items-center space-x-3 px-4 py-2 rounded-lg;
+}
+
+.controls .row-2 {
+  @apply w-full flex flex-row items-center space-x-3 rounded-lg px-4 py-2;
+}
+
+.row-2 .progress_slider{
+  @apply w-48;
 }
 
 /* Search CSS */
+.player-and-search .search {
+  @apply w-1/3 m-4;
+}
