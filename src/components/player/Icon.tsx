@@ -1,5 +1,12 @@
 import React from "react";
-interface Props {}
-export const Icon: React.FC<Props> = ({ children }) => {
-  return <div className="icon">{children}</div>;
+interface Props {
+  clickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  title?: string;
+}
+export const Icon: React.FC<Props> = ({ clickHandler, title, children }) => {
+  return (
+    <button className="icon" onClick={(event) => clickHandler(event)} title={title}>
+      {children}
+    </button>
+  );
 };
