@@ -6,14 +6,25 @@ import { VolumeSlider } from "./VolumeSlider";
 
 interface Props {
   player: any;
+  playing: boolean;
   duration: number;
-  progress: number;
+  currentTime: number;
   soundLevel: number;
   setSoundLevel: any;
   loopVideo: boolean;
+  setLoopVideo: any;
 }
 
-export const Controls: React.FC<Props> = ({ player, soundLevel, setSoundLevel }) => {
+export const Controls: React.FC<Props> = ({
+  player,
+  playing,
+  duration,
+  currentTime,
+  soundLevel,
+  setSoundLevel,
+  loopVideo,
+  setLoopVideo,
+}) => {
   const playPause = (): void => {
     Functions.playPause(player);
   };
@@ -29,12 +40,10 @@ export const Controls: React.FC<Props> = ({ player, soundLevel, setSoundLevel })
     Functions.muteVideo(player);
   };
   const seekBack = (): void => {
-    console.log("Seek back");
-    // Functions.seekBack()
+    player.seekTo(player.getCurrentTime() - 15, true);
   };
   const seekForward = (): void => {
-    console.log("Seek forward");
-    // Functions.seekForward()
+    player.seekTo(player.getCurrentTime() + 15, true);
   };
   const repeatVideo = (): void => {
     console.log("Repeat video");
@@ -85,24 +94,24 @@ export const Controls: React.FC<Props> = ({ player, soundLevel, setSoundLevel })
         </Icon>
         {/* Play | Pause */}
         <Icon clickHandler={playPause} title="Play/Pause video">
-          <i className="fas fa-lg fa-play"></i>
+          {playing === false ? <i className="fad fa-lg fa-play"></i> : <i className="fad fa-lg fa-pause"></i>}
         </Icon>
         {/* Forward 15s */}
         <Icon clickHandler={seekForward} title="Seek 15s forward">
           <i className="far fa-lg fa-redo"></i>
         </Icon>
         {/* Current time */}
-        <span id="current-time" className="text-gray-200" title="Current time">
-          0:00
+        <span className="text-gray-200" title="Current time">
+          {Functions.formatTime(currentTime)}
         </span>
         {/* Progress slider */}
         <div className="progress_slider">
-          <input type="range" min="1" max="100" defaultValue={0} step="0.1" className="range-bar" id="progress-bar" />
+          <input type="range" min={1} value={1} max={duration} step={0.1} />
         </div>
 
         {/* Total time */}
         <span id="duration" className="text-gray-200" title="Video duration">
-          0:00
+          {Functions.formatTime(duration)}
         </span>
         {/* Repeat video */}
         <Icon clickHandler={repeatVideo} title="Loop video">
