@@ -26,9 +26,14 @@ Functions.muteVideo = (player: any): void => {
   }
 };
 
-Functions.seekBack = (): void => {};
-Functions.seekForward = (): void => {};
 Functions.repeatVideo = (): void => {};
 Functions.showSettings = (): void => {};
+
+Functions.formatTime = (value: number): string => {
+  value = Math.round(value);
+  var time = Math.floor(value / 60);
+  let n: number | string = value - 60 * time;
+  return time + ":" + (n = n < 10 ? "0" + n : n);
+};
 
 export default Functions;
