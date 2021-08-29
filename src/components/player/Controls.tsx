@@ -37,7 +37,13 @@ export const Controls: React.FC<Props> = ({
     // Functions.nextVideo();
   };
   const muteVideo = (): void => {
-    Functions.muteVideo(player);
+    if (player.isMuted() == true) {
+      setSoundLevel(50);
+      player.unMute();
+    } else {
+      setSoundLevel(0);
+      player.mute();
+    }
   };
   const seekBack = (): void => {
     player.seekTo(player.getCurrentTime() - 15, true);
@@ -80,7 +86,11 @@ export const Controls: React.FC<Props> = ({
         <div className="sub-menu ios-bg">
           {/* Mute|Unmute button */}
           <Icon clickHandler={muteVideo} title="Mute">
-            <i className="fal fa-volume fa-lg" id="mute_btn"></i>
+            {soundLevel < 1 ? (
+              <i className="fal fa-lg fa-volume-mute text-red-500"></i>
+            ) : (
+              <i className="fal fa-lg fa-volume"></i>
+            )}
           </Icon>
           {/* Volum slider */}
           <VolumeSlider soundLevel={soundLevel} handleCallback={_handleVolumeSlider} />
