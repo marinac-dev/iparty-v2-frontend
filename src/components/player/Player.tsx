@@ -82,7 +82,7 @@ export const Player: React.FC<Props> = () => {
   return (
     <div className="wrapper">
       <div className="player" id="player_awning" data-content={songName}>
-        {/* <!-- Video player --> */}
+        {/* YoutTube api iframe */}
         <YouTube
           containerClassName="video"
           onReady={_onReady}
@@ -90,7 +90,7 @@ export const Player: React.FC<Props> = () => {
           videoId={Config.PlayerOpts.videoId}
           opts={Config.PlayerOpts.opts}
         />
-        {/* <!-- Controls --> */}
+        {/* Video controls */}
         <Controls
           player={player}
           playing={playing}
