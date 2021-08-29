@@ -66,6 +66,10 @@ export const Controls: React.FC<Props> = ({
     player.setVolume(volume);
   };
 
+  const _handleSeekSlider = (event: any): void => {
+    console.log(event.target.value);
+  };
+
   return (
     <div className="controls">
       {/* Row 1 */}
@@ -116,9 +120,8 @@ export const Controls: React.FC<Props> = ({
         </span>
         {/* Progress slider */}
         <div className="progress_slider">
-          <input type="range" min={1} value={1} max={duration} step={0.1} />
+          <input type="range" min={1} value={currentTime} max={duration} step={0.1} onInput={_handleSeekSlider} />
         </div>
-
         {/* Total time */}
         <span id="duration" className="text-gray-200" title="Video duration">
           {Functions.formatTime(duration)}
