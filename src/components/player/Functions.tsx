@@ -15,17 +15,6 @@ Functions.playPause = (player: any): void => {
 };
 Functions.prevVideo = (): void => {};
 Functions.nextVideo = (): void => {};
-
-Functions.muteVideo = (player: any): void => {
-  if (player.isMuted() == true) {
-    player.unMute();
-    // sound_icon("unmuted");
-  } else {
-    player.mute();
-    // sound_icon("muted");
-  }
-};
-
 Functions.repeatVideo = (): void => {};
 Functions.showSettings = (): void => {};
 
