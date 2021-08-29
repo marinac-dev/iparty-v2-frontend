@@ -10,7 +10,7 @@
 }
 
 .icon {
-  @apply cursor-pointer focus:outline-none
+  @apply w-6 cursor-pointer focus:outline-none;
 }
 .icon {
   color: hsl(0, 0%, 95%);
@@ -26,7 +26,7 @@
   @apply w-2/3 relative flex flex-col items-center justify-center m-4 overflow-hidden;
 }
 
-.wrapper .player{
+.wrapper .player {
   @apply w-3/4 flex justify-center items-center rounded overflow-hidden;
 }
 
@@ -54,11 +54,23 @@
   @apply w-full flex flex-row items-center space-x-3 rounded-lg px-4 py-2;
 }
 
-.row-2 .progress_slider{
+.row-2 .progress_slider {
   @apply w-48;
 }
 
 /* Search CSS */
 .player-and-search .search {
   @apply w-1/3 m-4;
+}
+
+.search .search-bar {
+  @apply flex flex-row justify-center items-center w-11/12;
+}
+
+.search-bar input[type="search"] {
+  @apply appearance-none bg-white h-8 pl-4 rounded-l-full text-gray-800 focus:outline-none focus:shadow;
+}
+
+.search-bar button[type="submit"] {
+  @apply cursor-pointer h-8 w-10 rounded-r-full bg-blue-400 text-gray-800 focus:outline-none;
 }
