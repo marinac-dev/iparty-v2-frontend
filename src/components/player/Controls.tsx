@@ -13,6 +13,8 @@ interface Props {
   setSoundLevel: any;
   loopVideo: boolean;
   setLoopVideo: any;
+  timeInterval: any;
+  timeIntervalCb: (player: any) => void;
 }
 
 export const Controls: React.FC<Props> = ({
@@ -24,6 +26,8 @@ export const Controls: React.FC<Props> = ({
   setSoundLevel,
   loopVideo,
   setLoopVideo,
+  timeInterval,
+  timeIntervalCb,
 }) => {
   const playPause = (): void => {
     Functions.playPause(player);
@@ -67,7 +71,9 @@ export const Controls: React.FC<Props> = ({
   };
 
   const _handleSeekSlider = (event: any): void => {
-    console.log(event.target.value);
+    clearInterval(timeInterval.current);
+    player.seekTo(event.target.value, true);
+    timeIntervalCb(player)
   };
 
   return (
@@ -120,7 +126,14 @@ export const Controls: React.FC<Props> = ({
         </span>
         {/* Progress slider */}
         <div className="progress_slider">
-          <input type="range" min={1} value={currentTime} max={duration} step={0.1} onInput={_handleSeekSlider} />
+          <input
+            type="range"
+            min={1}
+            value={currentTime}
+            max={duration}
+            step={0.1}
+            onChange={_handleSeekSlider}
+          />
         </div>
         {/* Total time */}
         <span id="duration" className="text-gray-200" title="Video duration">

@@ -90,6 +90,7 @@ export const Player: React.FC<Props> = () => {
           videoId={Config.PlayerOpts.videoId}
           opts={Config.PlayerOpts.opts}
         />
+
         {/* Video controls */}
         <Controls
           player={player}
@@ -100,6 +101,8 @@ export const Player: React.FC<Props> = () => {
           setSoundLevel={setSoundLevel}
           loopVideo={loopVideo}
           setLoopVideo={setLoopVideo}
+          timeInterval={timeIntervalRef}
+          timeIntervalCb={newInterval}
         />
       </div>
     </div>
